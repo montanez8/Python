@@ -11,7 +11,7 @@ print(multiplicacion(3, 6))
 (lambda num1, num2: print(num1 * num2))(3, 67)
 
 
-# ercicios 
+# ejercicios 
 
 area_circulo = lambda radio : m.pi * (radio ** 2)
 radio = float(input("Digite el radio del circulo:\n"))
