@@ -21,3 +21,4 @@ print(f"El area del circulo es: {round(area_circulo(radio))}")
 colores = ["rojo","azul","verde","amarillo"]
 
 (lambda color : print(f"El color {color} se encientra en la posicion {colores.index(color)} de la lista colores"))("azul")
+

@@ -81,4 +81,3 @@ beca = beca()
 valor_pagar = calcular_matric(program_acad, beca)
 
 print(f'El estuduante {nombre} tiene que pagar un valor de matricula de: ${valor_pagar:,}')
-
