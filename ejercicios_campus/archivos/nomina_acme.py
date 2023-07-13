@@ -1,9 +1,13 @@
 import os
-
+def validar_id(id , empleados):
+    for empleado in empleados:
+        if empleado[0] == id:
+            return False
+    return True
 def leer_archivo():
     empleados = []
-    if os.path.exists('emplacme.dat'):
-        with open('emplacme.dat', 'r') as f:
+    if os.path.exists('Python/ejercicios_campus/archivos/emplacme.dat'):
+        with open('Python/ejercicios_campus/archivos/emplacme.dat', 'r') as f:
             next(f)
             for line in f:
                 id, nombre, horas_trabajadas, valor_hora = line.strip().split(';')
@@ -22,7 +26,11 @@ def guardar_archivo(empleados):
             f.write(f"{empleado['id']};{empleado['nombre']};{empleado['horas_trabajadas']};{empleado['valor_hora']}\n")
 
 def agregar_empleado(empleados):
-    id = input('Ingrese el ID del empleado: ')
+    while True:
+        id = input('Ingrese el ID del empleado: ')
+        if validar_id(id , empleados):
+            continue
+        break
     nombre = input('Ingrese el nombre del empleado: ')
     horas_trabajadas = int(input('Ingrese las horas trabajadas por el empleado: '))
     valor_hora = int(input('Ingrese el valor de la hora trabajada por el empleado: '))
@@ -63,7 +71,7 @@ def eliminar_empleado(empleados):
     id = input('Ingrese el ID del empleado a eliminar: ')
     empleado = next((e for e in empleados if e['id'] == id), None)
     if empleado:
-        empleados.remove(empleado)
+        empleados.remove(empleado)    
         guardar_archivo(empleados)
     else:
         print('Empleado no encontrado')

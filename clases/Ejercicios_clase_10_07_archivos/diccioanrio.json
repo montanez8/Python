@@ -1,0 +1,21 @@
+{
+    "1": "lapiz",
+    "2": "Borrador",
+    "3": "Cuaderno",
+    "4": "Lapicero",
+    "Valor": 2500
+},
+{
+    "influencers": [
+        {
+            "name": "Jaxon",
+            "age": 42,
+            "word at": "Tech news"
+        },
+        {
+            "name": "Miller",
+            "age": 35,
+            "word at": "IT Day"
+        }
+    ]
+}

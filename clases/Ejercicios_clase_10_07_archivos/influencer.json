@@ -1,0 +1,15 @@
+{
+    "infliencers":[
+        {
+        "name":"Jaxon",
+        "age":42,
+        "word at":"Tech news"
+        },
+        {
+        "name":"Miller",
+        "age":35,
+        "word at":"IT Day"
+        }
+    ]
+    
+}
