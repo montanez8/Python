@@ -26,11 +26,7 @@ def guardar_archivo(empleados):
             f.write(f"{empleado['id']};{empleado['nombre']};{empleado['horas_trabajadas']};{empleado['valor_hora']}\n")
 
 def agregar_empleado(empleados):
-    while True:
-        id = input('Ingrese el ID del empleado: ')
-        if validar_id(id , empleados):
-            continue
-        break
+    id = input('Ingrese el ID del empleado: ')
     nombre = input('Ingrese el nombre del empleado: ')
     horas_trabajadas = int(input('Ingrese las horas trabajadas por el empleado: '))
     valor_hora = int(input('Ingrese el valor de la hora trabajada por el empleado: '))
@@ -64,6 +60,7 @@ def buscar_empleado(empleados):
         print(f"Nombre: {empleado['nombre']}")
         print(f"Horas trabajadas: {empleado['horas_trabajadas']}")
         print(f"Valor hora: {empleado['valor_hora']}")
+        
     else:
         print('Empleado no encontrado')
 
