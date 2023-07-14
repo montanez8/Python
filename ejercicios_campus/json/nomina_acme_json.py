@@ -19,7 +19,6 @@ def guardar_archivo(empleados):
         json.dump(empleados, f)
 
 def agregar_empleado(empleados):
-    print(empleados)
     id = (input('Ingrese el ID del empleado: '))
     nombre = input('Ingrese el nombre del empleado: ')
     horas_trabajadas = int(input('Ingrese las horas trabajadas por el empleado: '))
