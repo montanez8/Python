@@ -84,8 +84,8 @@ def validar_cod_product(cod, productos):
 def cargar_ventas():
     try:
         ventas = {}
-        with open('ventas.json', 'r') as pro:
-            ventas = json.load(pro)
+        with open('ventas.json', 'r') as ven:
+            ventas = ven.json.load(ven)
             return ventas
     except FileNotFoundError:
         ventas = {}
@@ -105,6 +105,7 @@ def compra_cliente(productos, ventas):
             cant = producto['cantidad']
             iva = producto['iva']
             ventas[cod_product] = {'nombre_producto': nombre_product,'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
+            comprados[cod_product] = {'nombre_producto': nombre_product,'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
             op = input('Va a vender otro Producto SI/NO: ').upper()
             if op == 'SI':
                 continue
@@ -163,3 +164,4 @@ def menu():
 
 if __name__ == '__main__':
     menu()
+
