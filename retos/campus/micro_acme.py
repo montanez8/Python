@@ -31,7 +31,7 @@ def guardar_producto(productos):
                 print('Opcion no valida')
                 continue
         productos[cod_product] = {'nombre_producto': nombre_product,
-                                  'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
+                                'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
         op = input('Desea agregar otro Producto SI/NO: ').upper()
         if op == 'SI':
             continue
@@ -85,7 +85,7 @@ def cargar_ventas():
     try:
         ventas = {}
         with open('ventas.json', 'r') as ven:
-            ventas = ven.json.load(ven)
+            ventas = json.load(ven)
             return ventas
     except FileNotFoundError:
         ventas = {}
@@ -104,8 +104,10 @@ def compra_cliente(productos, ventas):
             valor_unit_pro = producto['valor_initario']
             cant = producto['cantidad']
             iva = producto['iva']
-            ventas[cod_product] = {'nombre_producto': nombre_product,'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
-            comprados[cod_product] = {'nombre_producto': nombre_product,'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
+            ventas[cod_product] = {'nombre_producto': nombre_product,
+                                'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
+            comprados[cod_product] = {'nombre_producto': nombre_product,
+                                    'valor_initario': valor_unit_pro, 'cantidad': cant, 'iva': iva}
             op = input('Va a vender otro Producto SI/NO: ').upper()
             if op == 'SI':
                 continue
@@ -149,7 +151,7 @@ def menu():
                 lista_productos(productos)
                 continuar()
             elif opcion == 2:
-                compra_cliente(productos ,ventas)
+                compra_cliente(productos, ventas)
                 continuar()
             elif opcion == 3:
                 continuar()
@@ -164,4 +166,4 @@ def menu():
 
 if __name__ == '__main__':
     menu()
-
+    

@@ -2,10 +2,11 @@ empleados = {}
 def validar_id(id, empleados):
     return id not in empleados  
 def agregar_empleado(empleados):
-    try:
-        id = int(input("Ingrese el ID del empleado: "))
-    except ValueError:
-        print("\n!Error! .Ingrese un ID valido \n")
+    while True:
+        try:
+            id = int(input("Ingrese el ID del empleado: "))
+        except ValueError:
+            print("\n!Error! .Ingrese un ID valido \n")
     nombre = input("Ingrese el nombre del empleado: ")
     while True:
         horas = int(input("Ingrese las horas trabajadas por el empleado: "))
