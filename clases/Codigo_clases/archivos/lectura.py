@@ -1,7 +1,7 @@
 import io
 
 # abrirlo
-fd = open("codigo/archivos/texto.txt", "r", encoding="utf-8")
+fd = open("clases/Codigo_clases/archivos/mbox-short.txt", "r", encoding="utf-8")
 fd.seek(55)
 # leer = fd.read()
 leer2 = fd.readline(6)
