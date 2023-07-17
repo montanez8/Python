@@ -1,0 +1,41 @@
+{
+    "1": {
+        "historial": {
+            "1": {
+                "1102388078": {
+                    "1": {
+                        "id": "P013",
+                        "nombre": "Producto 13",
+                        "cantidad": 12,
+                        "vlrUnidad": 55000,
+                        "totalProd": 660000,
+                        "iva": 19.0,
+                        "totalIva": 125400.0,
+                        "totalPagar": 785400.0
+                    }
+                }
+            },
+            "2": {
+                "234234234": {
+                    "1": {
+                        "id": "P012",
+                        "nombre": "Producto 12",
+                        "cantidad": 110,
+                        "vlrUnidad": 70000,
+                        "totalProd": 7700000,
+                        "iva": 19.0,
+                        "totalIva": 1463000.0,
+                        "totalPagar": 9163000.0
+                    }
+                }
+            }
+        },
+        "inventario": {},
+        "ingreso": {
+            "1102388078": [
+                "Carlos",
+                "2023-07-17 07:37:50.902330"
+            ]
+        }
+    }
+}
