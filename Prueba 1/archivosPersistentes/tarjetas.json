@@ -1,0 +1,16 @@
+{
+    "1234567898765434": {
+        "Master Card": {
+            "Validez": "4/2025",
+            "codigo verificacion": 565,
+            "cliente": "1102388078"
+        }
+    },
+    "9876454323452345": {
+        "American Express": {
+            "Validez": "3/2026",
+            "codigo verificacion": 555,
+            "cliente": "1102388078"
+        }
+    }
+}
