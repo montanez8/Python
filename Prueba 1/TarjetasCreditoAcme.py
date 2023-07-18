@@ -23,8 +23,8 @@ def continuar():
     input('Ingrese cualquier tecla para continuar')      
 # funcion que permite la gestion de las tarjetas de credito (añadir , eliminar , modificar)
 def  tarjetas_credito():
-    tarjetas = cargar_tarjetas("Prueba 1/archivosPersistentes/tarjetas.json")
-    clientes = cargar_clientes("Prueba 1/archivosPersistentes/clientes.json")
+    tarjetas = cargar_tarjetas("tarjetas.json")
+    clientes = cargar_clientes("clientes.json")
     ruta = "Prueba 1/archivosPersistentes/tarjetas.json"
     while True:
         print("-"*45)
@@ -154,7 +154,7 @@ def guardar_cliente(ruta,datos):
         json.dump(datos, archivo)
 # funcion que permite la gestion de los clientes (añadir , eliminar , modificar)
 def clientes():
-    clientes = cargar_clientes("Prueba 1/archivosPersistentes/clientes.json")
+    clientes = cargar_clientes("clientes.json")
     while True:
         print("-"*45)
         print("\nGestion de clientes acme\n")
@@ -177,7 +177,7 @@ def clientes():
         
 # funcion que permite agregar un nuevo  cliente
 def agregar_cliente(clientes):
-    ruta = "Prueba 1/archivosPersistentes/clientes.json"
+    ruta = "clientes.json"
     while True:
         try:  
             nombre = input("Nombre cliente: ")
@@ -209,7 +209,7 @@ def agregar_cliente(clientes):
         break 
 # funcion que permite modificar informacion de un cliente existente
 def modificar_cliente(clientes):
-    ruta = "Prueba 1/archivosPersistentes/clientes.json"
+    ruta = "clientes.json"
     cedula = (input("Ingrese cedula cliente: "))
     if cedula in clientes:
         while True:
@@ -233,7 +233,7 @@ def modificar_cliente(clientes):
             
 # funcion que permite eliminar un cliente existente.
 def eliminar_cliente(clientes):
-    ruta = "Prueba 1/archivosPersistentes/clientes.json"
+    ruta = "clientes.json"
     cedula = (input("Ingrese cedula cliente: "))
     if cedula in clientes:
         del clientes[cedula]
@@ -243,8 +243,32 @@ def eliminar_cliente(clientes):
     else:
         print("Cliente no registrado")
 
-def  tarjetas_cliente():
-    pass
+def  tarjetas_cliente(tarjetas , clientes):
+    for keys , tarjeta in tarjetas.items():
+        for key , info in tarjeta.items():
+            tipo = key
+            validez = info["Validez"]
+            cod = info["codigo verificacion"]
+            cliente = info["cliente"]
+            id_cliente = input("Digite el id del cliente a verificar informacion de sus tarjetas. :")
+            if cliente == id_cliente:
+                print("{:<20} {:<10} {:<10} {:<20}".format("Tipo Tarjeta", "Validez", "Codigo Verificacion", "Cliente"))
+                print("-" * 70)
+                print("{:<20} {:<10} {:<10} {:<10}".format(tipo ,validez ,cod ,cliente ))
+                print("-"*70)
+                if id_cliente in clientes:
+                    for id , client in clientes.items():
+                        if id == cliente:
+                            print("{:<20} {:<10} {:<10}".format("Nombre", "Telefono", "Sexo"))
+                            print("-" * 70)
+                            nombre = client["nombre"]
+                            tel = client["telefono"]
+                            sexo = client["sexo"]
+                            print("{:<20} {:<10} {:<10}".format(nombre , tel , sexo))
+                            print("-" * 70)
+                            break
+        print("-" * 70)
+        
 
 def info_tarjeta(tarjetas,clientes):
     num_tarjeta = input("Ingrese el numero de tarjeta a verificar Informacion: ")
@@ -324,12 +348,12 @@ def cant_tarj_tipo(tarjetas):
 
 # funcion que permite gestionar los distintos informes requeridos
 def informes():
-    tarjetas = cargar_tarjetas("Prueba 1/archivosPersistentes/tarjetas.json")
-    clientes = cargar_clientes("Prueba 1/archivosPersistentes/clientes.json")
+    tarjetas = cargar_tarjetas("tarjetas.json")
+    clientes = cargar_clientes("clientes.json")
     while True:
         op = input("Seleccione el informe a visualizar.\n1.Tarjetas de credito de un cliente.\n2.Informacion de una Tarjeta de Credito.\n3.Listado de tarjetas de crédito.\n4.Listado de los clientes con tarjetas de crédito.\n5.Cantidad de tarjetas de cierto tipo.\n6.Salir\n-->")
         if op == "1":
-            tarjetas_cliente()
+            tarjetas_cliente(tarjetas , clientes)
             continuar()
         elif op == "2":
             info_tarjeta(tarjetas , clientes)
